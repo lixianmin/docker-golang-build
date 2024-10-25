@@ -11,7 +11,10 @@ FROM golang:1.22.8-alpine
 RUN apk update && apk upgrade && \
     apk add --no-cache git
 
-# 好像不管用, 至少对RUN go build中的AppBuildTime没起到任何作用
-# 修改时区为东8区，参考链接：https://game404.github.io/post/docker-timezone/
-#ENV TZ=Asia/Shanghai
-#RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
+# 修改时区为东8区
+ENV TZ="Asia/Shanghai"
+RUN apk add --no-cache tzdata
+RUN ln -sf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
+
+#RUN apk add bash
+#CMD ["tail", "-f", "/dev/null"]
