@@ -2,7 +2,7 @@
 # 执行./build.image.sh打包并上传本镜像
 
 # 升级为1.22, 以支持for loop中的变量
-FROM golang:1.22.9-alpine
+FROM golang:1.22.11-alpine
 
 
 # remove: build-base (gcc, g++, make)
