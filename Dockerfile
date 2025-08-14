@@ -4,7 +4,7 @@
 # 执行./build.image.sh打包并上传本镜像
 
 # 2024-04-18 升级为1.22, 以支持for loop中的变量
-FROM golang:1.23.12-alpine
+FROM golang:1.24.6-alpine
 
 
 # remove: build-base (gcc, g++, make)
